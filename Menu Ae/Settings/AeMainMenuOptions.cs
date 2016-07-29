@@ -43,7 +43,7 @@ public class AeMainMenuOptions : MonoBehaviour
 		AssignBaseButtons ();
 
 		foreach(GroupButton button in ButtonGroup) if(myState != button.StateButton) button.Container.GetComponent<Animator>().SetTrigger("Disable");
-		Invoke("Modify",0.5f);
+		Invoke("Modify", 0.5f);
 	}
 	void Update ()
 	{

@@ -50,9 +50,7 @@ public class AeConScreen : MonoBehaviour
 			m_sUsernameplace = GUI.TextField(new Rect(860,350,200,30),m_sUsernameplace,12);
 			m_sPasswordplace = GUI.PasswordField(new Rect(860,388,200,30),m_sPasswordplace,"*"[0],12);
 			if(GUI.Button(new Rect(860,500,200,50),"Creer un compte"))
-			{
-				Application.OpenURL("http://brainwash-games.fr/signup.php");
-			}
+				Application.OpenURL("http://rakiah.com/aeternam/signup.php");
 		}
 	}
 

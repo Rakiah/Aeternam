@@ -31,6 +31,15 @@ public class AeCharacterMenu : MonoBehaviour
 	public Button ApplyCarButton;
 	public Button ResetCarButton;
 
+	public Text Kills;
+	public Text Deaths;
+	public Text Assists;
+	public Text Win;
+	public Text Loose;
+	public Text RatioKD;
+	public Text RatioVD;
+	public Text Credits;
+
 	public GameObject SlotParent;
 	public GameObject Slot;
 	
@@ -53,6 +62,23 @@ public class AeCharacterMenu : MonoBehaviour
 	void Start ()
 	{
 		CheckEveryPoints();
+		SetStatistics();
+	}
+
+	void SetStatistics()
+	{
+		PlayerStats stats = AeCore.m_pCoreGame.MyStats;
+
+		Kills.text = stats.m_iNbKills.ToString();
+		Deaths.text = stats.m_iNbDeaths.ToString();
+		Assists.text = stats.m_iNbAssists.ToString();
+		Win.text = stats.m_iNbVictory.ToString();
+		Loose.text = stats.m_iNbDefeat.ToString();
+		Credits.text = stats.m_iMonneyRecolted.ToString();
+		if (stats.m_iNbDeaths == 0) RatioKD.text = "Perfect";
+		else RatioKD.text = string.Format("{0:N2}%", (float)stats.m_iNbKills / (float)stats.m_iNbDeaths);
+		if (stats.m_iNbDefeat == 0) RatioVD.text = "Perfect";
+		else RatioVD.text = string.Format("{0:N2}%", (float)stats.m_iNbVictory / (float)stats.m_iNbDefeat);
 	}
 	public void MoveToGroup (int StateID)
 	{
